@@ -60,19 +60,6 @@ class MockActionResponseTest extends TestCase
         $mockActionResponse->assertRedirect();
     }
 
-    public function testItSucceedsOnPushResponse()
-    {
-        $mockActionResponse = new MockActionResponse(Action::push('test'));
-        $mockActionResponse->assertPush();
-    }
-
-    public function testItFailsOnResponseOtherThanPush()
-    {
-        $this->shouldFail();
-        $mockActionResponse = new MockActionResponse(Action::message('test'));
-        $mockActionResponse->assertPush();
-    }
-
     public function testItSucceedsOnVisitResponse()
     {
         $mockActionResponse = new MockActionResponse(Action::visit('test'));

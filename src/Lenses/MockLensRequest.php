@@ -2,6 +2,7 @@
 
 namespace JoshGaber\NovaUnit\Lenses;
 
+use Illuminate\Database\Eloquent\Builder;
 use Laravel\Nova\Http\Requests\LensRequest;
 
 class MockLensRequest extends LensRequest
@@ -24,7 +25,7 @@ class MockLensRequest extends LensRequest
         return $query;
     }
 
-    public function withOrdering($query)
+    public function withOrdering($query, $defaultCallback = null): Builder
     {
         $this->withOrdering = true;
 
